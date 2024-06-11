@@ -1,0 +1,12 @@
+const eventhand_1 = require("./services/eventhand");
+const tematicclass_1 = require("./services/tematicclass");
+const participant_1 = __importDefault(require("./models/participant"));
+const eventSystem = new eventhand_1.EventManagementSystem();
+const myEvent = eventSystem.createEvent("My Festival", "Location", new Date(), "Music");
+const participant = new participant_1.default("John Doe", 30, "john@example.com");
+eventSystem.addParticipantToEvent(participant, myEvent);
+eventSystem.removeParticipantFromEvent(participant, myEvent);
+eventSystem.deleteEvent(myEvent);
+const musicCategory = new tematicclass_1.EventCategory("Music");
+const sportsCategory = new tematicclass_1.EventCategory("Sports");
+musicCategory.addEvent(myEvent);
